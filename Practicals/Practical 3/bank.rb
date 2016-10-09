@@ -49,10 +49,3 @@ class Bank
   end
 
 end
-
-aib = Bank.new('AIB', 10000, 15, 1, 0.5)
-anglo = Bank.new('Anglo', 8000, 10, 35, 5)
-boi = Bank.new('Bank of Ireland', 11000, 13, 40, 1)
-rbs = Bank.new('RBS', 92000, 45, 90, 10)
-ulster = Bank.new('Ulster Bank', 3500, 5, 40, 0)
-nama = Bank.new('NAMA', 200, 240)
