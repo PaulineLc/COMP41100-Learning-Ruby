@@ -6,7 +6,7 @@ require_relative 'developer'
 nama = Bank.new('Nama', 200, 240, 0, 0, nama)
 aib = Bank.new('AIB', 10000, 15, 0, 80, nama)
 anglo = Bank.new('Anglo', 8000, 7, 3, 20, nama)
-boi = Bank.new('Bank of Ireland', 11000, 15, 4, 75, nama)
+boi = Bank.new('Bank of Ireland', 11000, 15, 4, 55, nama)
 rbs = Bank.new('RBS', 92000, 45, 0, 50, nama)
 ulster = Bank.new('Ulster Bank', 3500, 10, 2, 47, nama)
 

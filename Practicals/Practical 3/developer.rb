@@ -25,7 +25,7 @@ class Developer
 
   def make_loans_void
     if bankrupt
-      puts "#{@name}: Bankrupty confirmed."
+      puts "#{@name}: Bankruptcy confirmed."
       puts "#{@name}: Adding #{@name}'s loans (#{@loans} million Euros) to #{@bank_loaned_from.name}'s losses..."
       puts "\n"
       @bank_loaned_from.loss_amt += @loans

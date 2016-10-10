@@ -18,22 +18,26 @@ class Bank
     @loans_amt < 6 * (@cash_deposits_amt - @loss_amt)
   end
 
-  def move_loans_to_nama(amt)
-    @loans_amt -= amt
-    @in_nama += amt
-    @cash_deposits_amt += 0.3 * amt
-    @bad_bank.loans_amt += amt
-    @bad_bank.cash_deposits_amt -= 0.3 * amt
-    solvent?
+  def move_loans_to_nama
+    transferred = 0
+    while !solvent && @loans_amt > 0 do
+      #puts "working..."
+      @loans_amt -= 1
+      @in_nama += 1
+      transferred += 1
+      @solvent = solvent?
+    end
+    @cash_deposits_amt += 0.3 * transferred
+    @bad_bank.loans_amt += transferred
+    @bad_bank.cash_deposits_amt -= 0.3 * transferred
+    puts "#{@name}: A total of #{transferred} million euros have been moved to #{get_bad_bank_name}"
   end
 
   def make_solvent
     @solvent = solvent?
     if !@solvent
-      amt_to_transfer = @loans_amt - (6 * (@cash_deposits_amt - @loss_amt)) >= 0? @loans_amt - (6 * (@cash_deposits_amt - @loss_amt)) : @loans_amt
-      move_loans_to_nama(amt_to_transfer)
       puts "#{@name}: bankrupcy confirmed."
-      puts "#{@name}: A total of #{amt_to_transfer} million euros have been moved to #{get_bad_bank_name}"
+      move_loans_to_nama
     else puts name + ': still solvent.'
     end
   end
@@ -45,8 +49,8 @@ class Bank
     puts "#{@name}"
     puts "employees:\t#{nb_employees}"
     puts "cash:\t\t#{@cash_deposits_amt.round}"
-    puts "loans:\t\t#{@loans_amt.round}"
     puts "loss:\t\t#{@loss_amt.round}"
+    puts "loans:\t\t#{@loans_amt.round}"
     puts "in NAMA:\t#{@in_nama.round}"
     puts "solvent:\t#{@solvent}"
     puts "bad bank:\t#{get_bad_bank_name}"
