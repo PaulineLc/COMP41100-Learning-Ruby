@@ -1,15 +1,15 @@
 class Bank
   attr_accessor :name, :nb_employees, :cash_deposits_amt, :loans_amt, :loss_amt, :in_nama, :solvent, :bad_bank
 
-  def initialize(name, nb_employees, cash_deposits_amt, loans_amt=0, loss_amt=0, bad_bank)
+  def initialize(name, nb_employees, cash_deposits_amt, loss_amt, loan_amt, bad_bank)
     @name = name
     @nb_employees = nb_employees
     @cash_deposits_amt = cash_deposits_amt
-    @loans_amt = loans_amt
     @loss_amt = loss_amt
+    @loans_amt = loan_amt
+    @bad_bank = bad_bank
     @in_nama = 0
     @solvent = solvent?
-    @bad_bank = bad_bank
   end
 
   def solvent?
@@ -24,12 +24,13 @@ class Bank
     @cash_deposits_amt += 0.3 * amt
     @bad_bank.loans_amt += amt
     @bad_bank.cash_deposits_amt -= 0.3 * amt
+    solvent?
   end
 
   def make_solvent
     @solvent = solvent?
     if !@solvent
-      amt_to_transfer = @loans_amt - (6 * (@cash_deposits_amt - @loss_amt)) <= 0? @loans_amt - (6 * (@cash_deposits_amt - @loss_amt)) : @loans_amt
+      amt_to_transfer = @loans_amt - (6 * (@cash_deposits_amt - @loss_amt)) >= 0? @loans_amt - (6 * (@cash_deposits_amt - @loss_amt)) : @loans_amt
       move_loans_to_nama(amt_to_transfer)
       puts "#{@name}: bankrupcy confirmed."
       puts "#{@name}: A total of #{amt_to_transfer} million euros have been moved to #{get_bad_bank_name}"

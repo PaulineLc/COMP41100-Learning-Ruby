@@ -4,11 +4,11 @@ require_relative 'developer'
 # Declare banks
 
 nama = Bank.new('Nama', 200, 240, 0, 0, nama)
-aib = Bank.new('AIB', 10000, 15, 1, 0.5, nama)
-anglo = Bank.new('Anglo', 8000, 10, 25, 5, nama)
-boi = Bank.new('Bank of Ireland', 11000, 13, 40, 1, nama)
-rbs = Bank.new('RBS', 92000, 45, 50, 10, nama)
-ulster = Bank.new('Ulster Bank', 3500, 10, 15, 0, nama)
+aib = Bank.new('AIB', 10000, 15, 0, 80, nama)
+anglo = Bank.new('Anglo', 8000, 7, 3, 20, nama)
+boi = Bank.new('Bank of Ireland', 11000, 15, 4, 75, nama)
+rbs = Bank.new('RBS', 92000, 45, 0, 50, nama)
+ulster = Bank.new('Ulster Bank', 3500, 10, 2, 47, nama)
 
 all_banks = [aib, anglo, boi, rbs, ulster, nama]
 
@@ -22,13 +22,13 @@ end
 
 # Declare developers
 
-johnny = Developer.new("Johnny", 35, 90, ulster)
-ronan = Developer.new("Ronan", 30, 25, anglo)
-murtagh = Developer.new("Murtagh", 45, 40, boi)
+saoirse = Developer.new("Saoirse", 1, 2, aib)
+ronan = Developer.new("Ronan", 2, 3, anglo)
+murtagh = Developer.new("Murtagh", 5, 7, boi)
 lowry = Developer.new("Lowry", 20, 25, rbs)
-saoirse = Developer.new("Saoirse", 60, 65, aib)
+johnny = Developer.new("Johnny", 11, 10, ulster)
 
-all_dev = [johnny, ronan, murtagh, lowry, saoirse]
+all_dev = [saoirse, ronan, murtagh, lowry, johnny]
 
 puts "\n"
 puts 'Now, let\'s have a look at the developers...'
@@ -46,7 +46,7 @@ puts "\n"
 all_dev.each{|dev| dev.make_loans_void}
 
 puts "\n"
-puts 'And now let\'s have a look at the bad banks again...'
+puts 'And now let\'s have a look at the banks again...'
 puts "\n"
 
 all_banks.each do |bank|
