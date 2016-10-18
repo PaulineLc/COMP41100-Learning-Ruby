@@ -1,14 +1,14 @@
 require 'csv'
 require_relative 'file1'
 
-bank_names = ["aib", "anglo", "boi", "rbs", "ulster", "nama"]
-
 bank_details = CSV.read('file4.csv')
 
-banks = Bank.create_bank(bank_names, bank_details)
+banks = Bank.create_bank(%w(aib anglo boi rbs ulster nama), bank_details)
 
-# banks.each{|i| puts i}
-# Bank.move_loans_to_nama(banks[0], 30, banks[-1])
-# banks.each{|i| puts i}
-
-banks.each{|i| puts i.solvent?}
+puts banks[0]
+banks[0].losses += 2
+solvency = banks[0].make_solvent
+puts banks[0]
+Bank.move_loans_to_nama(banks[0], solvency, banks[-1])
+puts banks[0]
+# banks.each{|i| i.make_solvent}
