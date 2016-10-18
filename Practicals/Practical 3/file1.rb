@@ -1,15 +1,14 @@
 class Bank
-  attr_accessor :name, :number_of_employees, :cash_deposits, :amount_of_loans, :losses, :in_nama, :solvent
+  attr_accessor :number_of_employees, :cash_deposits, :amount_of_loans, :losses, :in_nama, :solvent
 
-  def initialize(name, no_of_employees, cash_deposits, amount_of_loans, losses, in_nama, solvent)
-    @name, @no_of_employees, @cash_deposits, @amount_of_loans, @losses, @in_nama, @solvent = name, no_of_employees, cash_deposits, amount_of_loans, losses, in_nama, solvent
+  def initialize(no_of_employees, cash_deposits, amount_of_loans, losses, in_nama, solvent)
+    @no_of_employees, @cash_deposits, @amount_of_loans, @losses, @in_nama, @solvent = no_of_employees, cash_deposits, amount_of_loans, losses, in_nama, solvent
   end
 
   def self.create_bank(bank_name, bank_details)
-    banks = []
+    banks = {}
     for i in 0...bank_name.length
-      banks << Bank.new(bank_name[i],
-                        bank_details[i][0].to_i, #no_of_employees
+      banks[bank_name[i]] = Bank.new(bank_details[i][0].to_i, #no_of_employees
                         bank_details[i][1].to_f, #cash_deposits
                         bank_details[i][2].to_f, #amount_of_loans
                         bank_details[i][3].to_f, #losses
@@ -54,7 +53,6 @@ class Bank
     puts '*******************************'
     puts 'BANK PROFILE'
     puts '*******************************'
-    puts "#{@name}"
     puts "employees:\t\t\t\t#{@no_of_employees}"
     puts "cash deposits:\t\t\t#{@cash_deposits.round}"
     puts "Amount of loans:\t\t#{@amount_of_loans.round}"
