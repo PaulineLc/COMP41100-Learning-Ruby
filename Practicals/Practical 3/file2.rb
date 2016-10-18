@@ -8,12 +8,16 @@ class Developer
   def self.create_developer(csv_file)
     developers = []
     csv_file.each do |dev|
-      developers << Developer.new(dev[0], dev[1], dev[2], dev[3], dev[4])
+      developers << Developer.new(dev[0], #name
+                                  dev[1].to_f, #net_worth
+                                  dev[2].to_f, #loans
+                                  dev[3], #bank_loaned_from
+                                  dev[4] == 'true') #bankrupt (boolean)
     end
     developers
   end
 
-  def developer_solvent?
+  def solvent?
     @net_worth >= @loans
   end
 
