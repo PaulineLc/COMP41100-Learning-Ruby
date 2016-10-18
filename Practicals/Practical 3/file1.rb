@@ -22,7 +22,7 @@ class Bank
   def solvent?
     #since that method returns a boolean, I decided to remove the is_ as it is bad practice
     #(ref: Ruby Style Guide https://github.com/bbatsov/ruby-style-guide#naming)
-    @loans_amt < 6 * (@cash_deposits_amt - @loss_amt)
+    @amount_of_loans < 6 * (@cash_deposits - @losses)
   end
 
   def self.move_loans_to_nama(bank, loans_to_move, nama)
