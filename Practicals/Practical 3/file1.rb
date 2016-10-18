@@ -19,10 +19,10 @@ class Bank
     banks
   end
 
-  def solvent?(loans_to_transfer = 0)
+  def solvent?(loans_to_transfer = 0, additional_cash_deposit = 0)
     #since that method returns a boolean, I decided to remove the is_ as it is bad practice
     #(ref: Ruby Style Guide https://github.com/bbatsov/ruby-style-guide#naming)
-    (@amount_of_loans - loans_to_transfer) < 6 * (@cash_deposits - @losses)
+    (@amount_of_loans - loans_to_transfer) < 6 * (@cash_deposits + additional_cash_deposit - @losses)
   end
 
   def self.move_loans_to_nama(bank, loans_to_move, nama)
@@ -35,17 +35,18 @@ class Bank
   end
 
   def make_solvent
+
     loans_to_transfer = 0
     @solvent = solvent?
-    while !@solvent && @amount_of_loans > 0 do
-      loans_to_transfer += 1
-      @solvent = solvent?(loans_to_transfer)
+
+    if !@solvent
+      while !(solvent?(loans_to_transfer, 0.3 * loans_to_transfer)) && @amount_of_loans > 0 do
+        loans_to_transfer += 1
+      end
+      puts "A total of #{loans_to_transfer}M Euros worth of loans need to be transferred from #{@name} to NAMA"
+    else puts "There is no need to transfer any loan from #{@name} to NAMA at the moment."
     end
-    @solvent = solvent?
-    if loans_to_transfer <= 0
-      then puts "There is no need to transfer any loan from #{@name} to NAMA at the moment."
-    else puts "A total of #{loans_to_transfer}M Euros worth of loans need to be transferred from #{@name} to NAMA"
-    end
+
     loans_to_transfer
   end
 
