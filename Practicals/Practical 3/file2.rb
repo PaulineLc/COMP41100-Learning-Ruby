@@ -6,6 +6,7 @@ class Developer
   end
 
   def self.create_developer(csv_file)
+    #takes details from a file and returns a array of all developers
     developers = []
     csv_file.each do |dev|
       developers << Developer.new(dev[0], #name
@@ -18,14 +19,21 @@ class Developer
   end
 
   def solvent?
+    #since that method returns a boolean, I decided to remove the is_ as it is bad practice
+    #(ref: Ruby Style Guide https://github.com/bbatsov/ruby-style-guide#naming)
+
+    #check if developer is solvent
+    #a developer is solvent if its net worth is more important than its loans
     @net_worth >= @loans
   end
 
   def owes_bank
+    #getter method
     @bank_loaned_from
   end
 
   def owes_amount
+    #getter method
     @loans
   end
 
