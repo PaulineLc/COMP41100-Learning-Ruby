@@ -36,11 +36,14 @@ class Album
   # builds a single album, given the name of that album.
 
   def self.build_all(albums = [])
-		#take album names
+		#take album names from the songs
 		#call build_an_album_called to build the album
 		#add that album to the array
-		#return array
-    p "oops...this is missing   ;-)"
+		#return array of albums
+    album_names = []
+    $songs.each{|song| album_names << song.album}
+    album_names.uniq!.each{|album_name| albums << build_an_album_called(album_name)}
+    albums
   end
 
   # Class method that takes an album name, it finds all the sounds that are in that album
@@ -48,7 +51,20 @@ class Album
   # to populate the various attributes of the album object.
 
   def self.build_an_album_called(album_name)
-     p "oops...this is missing   ;-)"
+    #Take album name
+    #Look for song with that album name
+    #Create it with self.make_album
+    tracks, length, artist, owners = [], 0, [], []
+    $songs.each do |song|
+      if song.album == album_name
+        tracks << song.name
+        length += song.time
+        artist.include?(song.artist)? artist : artist << song.artist
+        owners.include?(song.owners)? owners : owners << song.owners
+      end
+    end
+
+    make_album(album_name,tracks,length,artist,owners)
   end
 
 end
