@@ -9,29 +9,42 @@
 # (3) all entries are strings except time which is a float
 # (4) we need to explicitly write code to ignore the commented lines
 #######################################################
-# Plastic Beach by Gorillaz
-"Superfast Jellyfish","Gorillaz","Plastic Beach",2.55,10
-"On Melancholy Hill","Gorillaz","Plastic Beach",3.54,11
-"Broken","Gorillaz","Plastic Beach",3.17,12
+# Rave Tapes by Mogwai
+"Heard about you last night","Mogwai","Rave Tapes",5.24,1
+"Simon Ferocious","Mogwai","Rave Tapes",4.49,2
+"Remurdered","Mogwai","Rave Tapes",6.26,3
+"Hexon Bogon","Mogwai","Rave Tapes",2.36,4
+"Repelish","Mogwai","Rave Tapes",3.56,5
+"Master Card","Mogwai","Rave Tapes",3.58,6
+"Deesh","Mogwai","Rave Tapes",5.34,7
+"Blue Hours","Mogwai","Rave Tapes",6.18,8
+"No Medicine For Regrets","Mogwai","Rave Tapes",5.41,9
+"The Lord Is Out Of Control","Mogwai","Rave Tapes",4.23,10
 #
-# I Had the Blues and I Shook Them Loose by  Bombay Bicycle Club
-"Always Like This","Bombay Bicycle Club","I Had the Blues and I Shook Them Loose",4.06,13
+# () by Sigur Ros
+"Vaka","Sigur Ros","()",6.38,11
+"Fyrsta","Sigur Ros","()",7.34,12
+"Samskeyti","Sigur Ros","()",6.33,13
+"Njosnavelin","Sigur Ros","()",7.33,14
+"Alafoss","Sigur Ros","()",9.57,15
+"E-bow","Sigur Ros","()",8.48,16
+"Daudalagio","Sigur Ros","()",13.00,17
+"Popplagio","Sigur Ros","()",11.45,18
 #
-# Horehound by The Dead Weather
-"60 Feet Tall","The Dead Weather","Horehound",5.33,14
-"I Cut Like a Buffalo","The Dead Weather","Horehound",3.28,15
-"So Far From Your Weapon","The Dead Weather","Horehound",3.40,16
-#
-# Straight in No Kissing by  Dirty Epics
-"Way Too Pretty","Dirty Epics","Straight in No Kissing",3.19,17
-"Pony","Dirty Epics","Straight in No Kissing",3.14,18
-"The Cure","Dirty Epics","Straight in No Kissing",2.96,19
-#
-# Crystal Castles by  Crystal Castles                                       a
-"Untrust Us","Crystal Castles","Crystal Castles",3.06,20
-"Air War","Crystal Castles","Crystal Castles",4.02,21
-#
-# Disco Crap  by  Multiple Artists
-"Staying Alive","The GBs","Disco Crap",3.06,22
-"Staying Alive","The GBs","Disco Crap",3.06,23
-"Bling","SalboNedam","Disco Crap",4.02,24
+# Greatest Hits by Foo Fighters
+"All My Life","Foo Fighters","Greatest Hits",4.24,19
+"Best Of You","Foo Fighters","Greatest Hits",4.15,20
+"Everlong","Foo Fighters","Greatest Hits",4.10,21
+"The Pretender","Foo Fighters","Greatest Hits",4.27,22
+"My Hero","Foo Fighters","Greatest Hits",4.19,23
+"Learn To Fly","Foo Fighters","Greatest Hits",3.55,24
+"Times Like These","Foo Fighters","Greatest Hits",4.28,25
+"Monkey Wrench","Foo Fighters","Greatest Hits",3.51,26
+"Big Me","Foo Fighters","Greatest Hits",2.12,27
+"Breakout","Foo Fighters","Greatest Hits",3.21,28
+"Long Road To Ruin","Foo Fighters","Greatest Hits",3.48,29
+"This Is A Call","Foo Fighters","Greatest Hits",3.53,30
+"Skin And Bones","Foo Fighters","Greatest Hits",4.02,31
+"Wheels","Foo Fighters","Greatest Hits",4.38,32
+"Word Forward","Foo Fighters","Greatest Hits",3.47,33
+"Everlong (Accoustic)","Foo Fighters","Greatest Hits",4.11,34
