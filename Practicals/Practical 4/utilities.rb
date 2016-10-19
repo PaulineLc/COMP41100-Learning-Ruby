@@ -24,7 +24,8 @@ end
 
 class Array
   def clean_up()
-    self.join(" ").split(" ").uniq   #this could be more elegant
+    #self.join(" ").split(" ").uniq   #this could be more elegant
+    self.uniq
   end
 end
 

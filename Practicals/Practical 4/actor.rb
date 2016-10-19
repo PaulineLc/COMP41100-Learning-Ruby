@@ -26,7 +26,9 @@ class Actor
   # actor obejcts using Actor.new.  The method returns an array of actor-objects.
 
   def self.build_all(actors = [])
+		p $hash_owners
 		actor_names = $hash_owners.values.clean_up
+		p actor_names
 		actor_names.each {|name| actors << Actor.new(name)}
 		actors
 	end

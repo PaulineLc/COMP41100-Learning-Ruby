@@ -43,6 +43,7 @@ class Album
     album_names = []
     $songs.each{|song| album_names << song.album}
     album_names.uniq!.each{|album_name| albums << build_an_album_called(album_name)}
+    p albums
     albums
   end
 
@@ -60,6 +61,8 @@ class Album
         tracks << song.name
         length += song.time
         artist.include?(song.artist)? artist : artist << song.artist
+        #artist and owners are built as an array because an album can have many artists.
+        # e.g. Greatest Hits 1990s will have Wonderwall by Oasis, Git It Away by The Red Hot Chili Peppers....
         owners.include?(song.owners)? owners : owners << song.owners
       end
     end
