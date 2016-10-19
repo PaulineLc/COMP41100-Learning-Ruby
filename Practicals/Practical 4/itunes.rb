@@ -24,6 +24,10 @@ $songs = reader.read_in_songs(songs_file)
 puts "Processing Ownership from file: #{owners_file}"
 $hash_owners = reader.read_in_ownership(owners_file)
 
+puts '***'
+Util.check_song_id
+puts '***'
+
 puts "Building all owners..."
 $actors = Actor.build_all()
 

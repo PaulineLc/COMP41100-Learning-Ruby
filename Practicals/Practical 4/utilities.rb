@@ -19,6 +19,22 @@ module Util
          then   found.first
        end
    end
+
+   def self.check_song_id(songs_csv_ids = [], owners_csv_ids = [])
+     $songs.each{|song| songs_csv_ids << song.id}
+     owners_csv_ids += $hash_owners.keys
+     if songs_csv_ids != songs_csv_ids.uniq
+       then MyErr.new("song referenced twice in songs.csv",
+                      songs_csv_ids.map{|song| song if songs_csv_ids.count(song) > 1}.uniq - [nil], #this  will point out the song reference twice
+                      "check_song_id").do_it
+     end
+     if songs_csv_ids != owners_csv_ids
+       then MyErr.new("Missing reference in owners.csv or songs.csv",
+                      (songs_csv_ids - owners_csv_ids) + (owners_csv_ids - songs_csv_ids), #song missing from either file
+                      "check_song_id").do_it
+     end
+   end
+
 end
 
 

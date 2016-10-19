@@ -18,8 +18,12 @@ class MyErr
 			then puts "Error: Item #{@holder} raised #{@type} in #{@method}"
 		elsif @type == "not_found_error"
 			then puts "Error: #{@holder} was #{@type} in #{@method}"
+    elsif @type == "song referenced twice in songs.csv"
+      then puts "Error: \"#{@type}\" in #{@method}: Check these ID #{@holder}"
+    elsif @type == "Missing reference in owners.csv or songs.csv"
+      then puts "Error: \"#{@type}\" in #{@method}: Check these ID #{@holder}"
 		else puts "Error: Have been given an unknown error type: #{@type}"
 		end
-	end
+  end
 	
 end
