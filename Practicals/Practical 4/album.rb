@@ -36,6 +36,10 @@ class Album
   # builds a single album, given the name of that album.
 
   def self.build_all(albums = [])
+		#take album names
+		#call build_an_album_called to build the album
+		#add that album to the array
+		#return array
     p "oops...this is missing   ;-)"
   end
 

@@ -34,17 +34,17 @@ puts "Building All Albums..."
 $albums = Album.build_all()
 
 # Given the name of a song and a person; let them buy the song
-puts "\nMarkk buys The Cure..."
-song1 = Util.fetch("The Cure")
-mark =   Util.fetch("markk")
-mark.to_s
+puts "\nRCA buys Vaka..."
+song1 = Util.fetch("Vaka")
+rca =   Util.fetch("RCA")
+rca.to_s
 song1.to_s
-mark.buys_song(song1)
+rca.buys_song(song1)
 song1.to_s
 
-# What songs does Markk own
-puts "\nHow many songs does Markk own..."
-p mark.what_songs_does_he_own().size
+# What songs does RCA own
+puts "\nHow many songs does RCA own..."
+p rca.what_songs_does_he_own().size
 
 puts "\nPlay The Cure..."
 song1.play_song
