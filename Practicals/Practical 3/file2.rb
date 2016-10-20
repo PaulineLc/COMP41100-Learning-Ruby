@@ -20,7 +20,7 @@ class Developer
 
   def solvent?
     #since that method returns a boolean, I decided to remove the is_ as it is bad practice
-    #(ref: Ruby Style Guide https://github.com/bbatsov/ruby-style-guide#naming)
+    #(ref: Ruby Style Guide https://github.com/bbatsov/ruby-style-guide#bool-methods-prefix)
 
     #check if developer is solvent
     #a developer is solvent if its net worth is more important than its loans

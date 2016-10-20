@@ -21,7 +21,7 @@ class Bank
 
   def solvent?(loans_to_transfer = 0, additional_cash_deposit = 0)
     #since that method returns a boolean, I decided to remove the is_ as it is bad practice
-    #(ref: Ruby Style Guide https://github.com/bbatsov/ruby-style-guide#naming)
+    #(ref: Ruby Style Guide https://github.com/bbatsov/ruby-style-guide#bool-methods-prefix)
 
     #returns a boolean
     #the 2 optional arguments are used by make_solvent to calculate how many loans need to be moved to be made solvent
