@@ -70,13 +70,5 @@ puts time_it {
 # I made a huge mistake :x
 # This is the worst method ever!
 
-# method 6
-puts time_it {
-  my_array.inject(Set.new){|my_set, element| my_set.add(element)}.to_a
-}
-
-# Sample result: 2.4838566300000297e-06
-# That's the best one I could come up with :)
-
 # That's all for now! I can't think of any solution that would be drastically different from the above
-# Method 6 has been my best, so I will change clean_up with that.
+# Method 4 has been my best, so I will change clean_up with that.
