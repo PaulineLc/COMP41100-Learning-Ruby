@@ -4,6 +4,7 @@
 
 #This is the top level
 require 'csv'
+require 'set'
 require_relative 'actor'
 require_relative 'album'
 require_relative 'song'
@@ -23,6 +24,9 @@ $songs = reader.read_in_songs(songs_file)
 
 puts "Processing Ownership from file: #{owners_file}"
 $hash_owners = reader.read_in_ownership(owners_file)
+
+p $hash_owners.values.uniq
+p $hash_owners.values.clean_up
 
 puts '***'
 Util.check_song_id
