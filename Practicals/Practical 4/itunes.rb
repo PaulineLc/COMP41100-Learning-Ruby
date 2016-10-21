@@ -33,19 +33,19 @@ Util.check_song_id
 puts '***'
 puts ''
 
-puts "Building all owners..."
-$actors = Actor.build_all()
+puts 'Building all owners...'
+$actors = Actor.build_all
 
-puts "Updating songs with ownership details..."
+puts 'Updating songs with ownership details...'
 $songs.each { |song| song.owners = $hash_owners[song.id] }
 
-puts "Building All Albums..."
-$albums = Album.build_all()
+puts 'Building All Albums...'
+$albums = Album.build_all
 
 # Given the name of a song and a person; let them buy the song
 puts "\nRCA buys Vaka..."
-song1 = Util.fetch("Vaka")
-rca = Util.fetch("RCA")
+song1 = Util.fetch('Vaka')
+rca = Util.fetch('RCA')
 rca.to_s
 song1.to_s
 rca.buys_song(song1)
@@ -53,7 +53,7 @@ song1.to_s
 
 # What songs does RCA own
 puts "\nHow many songs does RCA own..."
-p rca.what_songs_does_he_own().size
+p rca.what_songs_does_he_own.size
 
 puts "\nPlay Vaka..."
 song1.play_song
