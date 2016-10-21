@@ -43,7 +43,7 @@ class Album
     album_names = []
     $songs.each{|song| album_names << song.album}
     album_names.uniq!.each{|album_name| albums << build_an_album_called(album_name)}
-    p albums
+    #p albums
     albums
   end
 

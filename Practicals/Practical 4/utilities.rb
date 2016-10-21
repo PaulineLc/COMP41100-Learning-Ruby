@@ -41,7 +41,7 @@ end
 class Array
   def clean_up()
     # self.join(" ").split(" ").uniq   #this could be more elegant
-    self.inject(Set.new){|my_set, element| my_set.add(element)}
+    self.inject(Set.new){|my_set, element| my_set.add(element)}.to_a
   end
 end
 

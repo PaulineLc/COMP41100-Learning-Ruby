@@ -28,6 +28,7 @@ $hash_owners = reader.read_in_ownership(owners_file)
 p $hash_owners.values.uniq
 p $hash_owners.values.clean_up
 
+# If there is an error in the CSV files, it will show up below
 puts '***'
 Util.check_song_id
 puts '***'
