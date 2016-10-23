@@ -16,4 +16,17 @@ class Felidae < Animal
     @biomes.each{|biome| puts "\t-#{biome}"}
   end
 
+  def describe
+    print "This #{scientific_name} is #{@color} of color and "
+    if social
+      then print 'lives with other members of its species. '
+    else print 'lives alone. '
+    end
+    if lethal
+      print 'It could kill you.'
+    else print 'It cannot kill you.'
+    end
+    puts ''
+  end
+
 end
