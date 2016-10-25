@@ -1,0 +1,50 @@
+"Songname","Artist","Album","Time","Id"
+# THIS FILE CONTAINS ALL SONGS IN iTunes
+# Aug 29 2014
+######################################################
+# 			All SONGS
+#######################################################
+# (1) This file can be very sensitive to errors.
+# (2) note, that there is no space after a comma
+# (3) all entries are strings except time which is a float
+# (4) we need to explicitly write code to ignore the commented lines
+#######################################################
+# Rave Tapes by Mogwai
+"Heard about you last night","Mogwai","Rave Tapes",5.4,1
+"Simon Ferocious","Mogwai","Rave Tapes",4.8,2
+"Remurdered","Mogwai","Rave Tapes",6.4,3
+"Hexon Bogon","Mogwai","Rave Tapes",2.6,4
+"Repelish","Mogwai","Rave Tapes",3.9,5
+"Master Card","Mogwai","Rave Tapes",3.9,6
+"Deesh","Mogwai","Rave Tapes",5.6,7
+"Blue Hours","Mogwai","Rave Tapes",6.3,8
+"No Medicine For Regrets","Mogwai","Rave Tapes",5.7,9
+"The Lord Is Out Of Control","Mogwai","Rave Tapes",4.3,10
+#
+# () by Sigur Ros
+"Vaka","Sigur Ros","()",6.7,11
+"Fyrsta","Sigur Ros","()",7.6,12
+"Samskeyti","Sigur Ros","()",6.6,13
+"Njosnavelin","Sigur Ros","()",7.6,14
+"Alafoss","Sigur Ros","()",9.9,15
+"E-bow","Sigur Ros","()",8.8,16
+"Daudalagio","Sigur Ros","()",13.00,17
+"Popplagio","Sigur Ros","()",11.75,18
+#
+# Greatest Hits by Foo Fighters
+"All My Life","Foo Fighters","Greatest Hits",4.4,19
+"Best Of You","Foo Fighters","Greatest Hits",4.3,20
+"Everlong","Foo Fighters","Greatest Hits",4.2,21
+"The Pretender","Foo Fighters","Greatest Hits",4.4,22
+"My Hero","Foo Fighters","Greatest Hits",4.3,23
+"Learn To Fly","Foo Fighters","Greatest Hits",3.9,24
+"Times Like These","Foo Fighters","Greatest Hits",4.5,25
+"Monkey Wrench","Foo Fighters","Greatest Hits",3.8,26
+"Big Me","Foo Fighters","Greatest Hits",2.2,27
+"Breakout","Foo Fighters","Greatest Hits",3.3,28
+"Long Road To Ruin","Foo Fighters","Greatest Hits",3.8,29
+"This Is A Call","Foo Fighters","Greatest Hits",3.9,30
+"Skin And Bones","Foo Fighters","Greatest Hits",4.1,31
+"Wheels","Foo Fighters","Greatest Hits",4.7,32
+"Word Forward","Foo Fighters","Greatest Hits",3.8,33
+"Everlong (Accoustic)","Foo Fighters","Greatest Hits",4.2,34

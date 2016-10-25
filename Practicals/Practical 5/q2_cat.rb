@@ -12,8 +12,9 @@ class Cat < Felidae
   end
 
   def make_a_sound
-    no = rand(10)
+    no = 1 + rand(10)
     no.times { print 'meow... purr purr purr... ' }
+    puts ''
   end
 
 end

@@ -57,3 +57,15 @@ puts ''
 
 puts 'What sound does Zoe make?'
 zoe.make_a_sound
+puts ''
+
+puts 'Below: just making a point that methods defined in subclasses do NOT apply up the class hierarchy'
+puts 'I will call make_a_sound with is a Cat method on a Felidae object. The program WILL crash'
+
+generic_cat = Felidae.new('Generic cat', false, true, %w(Africa America Asia Europe Oceania), true, false, 'turtoise shell (white, brown, black, red)', %w(plain forest human_settlements))
+
+puts 'The following felidae has been created:'
+p generic_cat
+
+puts 'Now calling the method...'
+generic_cat.make_a_sound
