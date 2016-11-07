@@ -11,8 +11,19 @@ p_elements = doc.xpath('/html/body//p')
 images = doc.xpath('//img')
 td_elements = doc.xpath('//td')
 
-sth = doc.xpath('//a[@href]')
+links = doc.xpath('//a[@href]')
 
-puts sth
+puts 'all p elements:'
+puts p_elements
+puts ''
 
-#idea : find all text, find most common words and return it to provide potential keywords for the topic
+puts 'link to images'
+puts images
+puts ''
+
+puts 'td elements'
+puts td_elements
+puts ''
+
+puts 'Hyperlinks:'
+puts links
