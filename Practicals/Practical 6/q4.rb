@@ -9,46 +9,51 @@ class Cat
 
   def meow
     no = 1 + rand(10)
-    no.times { print 'Meow! ' }
+    no.times { print 'Meow! ' } #cat says 'meow'
     puts ''
-    @hungriness += no
-    @sleepiness += (no/2)
+
+    @hungriness += no #makes cat hungrier
+    @sleepiness += (no/2) #makes cat sleepier
+
     if @hungriness > 0
+      #if cat is hungry, makes it eat
       puts "#{@name} is hungry... Going to eat"
       eat
     end
     if @sleepiness > 0
+      #if cat is sleepy, makes it sleep
       puts "#{@name} is sleepy... Going to bed"
       sleep
     end
   end
 
   def eat
-    nb_biscuits = 1 + rand(10)
+    nb_biscuits = 1 + rand(10) #gives biscuit to cat
     print "#{@name}: Om "
-    nb_biscuits.times {print 'nom '}
+    nb_biscuits.times {print 'nom '} #cat eats the biscuit...
     puts ''
-    @hungriness -= nb_biscuits
+    @hungriness -= nb_biscuits #Cat is less hungry
+    @hungriness #return hungriness
   end
 
   def sleep
-    nb_hours = 1 + rand(10)
+    nb_hours = 1 + rand(10) #set up the number of hours during which the cat will sleep
     print "#{@name}: "
-    nb_hours.times { print 'Zzz... '}
+    nb_hours.times { print 'Zzz... '} #cat sleeps....
     puts ''
-    @sleepiness -= nb_hours
-    @sleepiness
+    @sleepiness -= nb_hours #cat is less sleepy
+    @sleepiness #returns sleepiness
   end
 
   def sleepier_than(other_cat)
-    self.sleep > other_cat.sleep
+    self.sleep > other_cat.sleep #true if the cat is more sleepy than the other cat
   end
 
   def hungrier_than(other_cat)
-    self.eat > other_cat.eat
+    self.eat > other_cat.eat #true if the cat is more hungry than the other cat
   end
 
-  public :meow
+  public :meow, :sleepier_than, :hungrier_than
   protected :sleep
   private :eat
 
