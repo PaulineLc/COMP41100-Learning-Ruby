@@ -26,7 +26,7 @@ class SpamChecker
 
   def check_content
     @@spam_key_words.each do |spam|
-      if @email_text =~ spam
+      if @email_text =~ spam # check for match
         @spam_score += 1
       end
     end
@@ -45,13 +45,13 @@ class SpamChecker
     else probability = (@spam_score - 4) / (12 - 4).to_f #calculating "closeness" to upper and lower bound e.g. a spam score of 8 would have a probability of 0.5
     end
 
-    probability
+    probability # value to return
 
   end
 
   def self.compute_spam_key_words(path)
     CSV.foreach(path) do |keyword|
-      @@spam_key_words << /#{Regexp.quote(keyword[0].downcase)}/
+      @@spam_key_words << /#{Regexp.quote(keyword[0].downcase)}/ # add the spam-y word/sentence as a lowercase RegExp
     end
   end
 

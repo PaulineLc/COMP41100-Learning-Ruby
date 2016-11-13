@@ -38,13 +38,13 @@ end
 
 def find_films_by_actor(doca, out = [])
 	puts "Entering find_films_by_actor with #{find_name_title(doca)}."
- 	all_links = doca.search('//a[@href]')
- 	all_links.each do |link|
- 		link_info = link['href']
- 		if link_info.include?("(film)") && !(link_info.include?("Category:") || link_info.include?("php"))
- 			then out << link_info end
- 	  end
- 	out.uniq.collect {|link| strip_out_name(link)}
+ 	all_links = doca.search("//td//i//a")
+ 	all_links = all_links.collect do |link|
+    link_info = link
+    link_info = link['href']
+    link_info = strip_out_name(link_info) # May print 'URI is not right in STRIP_OUT_NAME' when a movie does NOT have a wikipedia page
+  end
+  all_links
 end
  
  
@@ -81,14 +81,15 @@ end
 # and removes the http-wiki crap and gives you back the name of the actor or film.
 
 def strip_out_name(name, nameout = [])
-	 case 
+	 case
 		when name =~ /^http:\/\/en.wikipedia.org\/wiki\//
              nameout = name.gsub(/http:\/\/en.wikipedia.org\/wiki\//, "")
 		when name =~ /^en.wikipedia.org\/wiki\//
 			 nameout = name.gsub(/en.wikipedia.org\/wiki\//, "")
 		when name =~ /^\/wiki\//
 			 nameout = name.gsub(/\/wiki\//, "")
-		when name !=~ URI::regexp || name.nil?
+     when name !=~ URI::regexp || name.nil?
+       p name
 			 print "URI is not right in STRIP_OUT_NAME: "; p "#{@in_uri}"
 	 end
 	 nameout
@@ -111,3 +112,11 @@ film_uris = [uri1,uri2,uri4,uri7,uri8]      # URIs that are and are not films.
 #DE DATA
 #p load_uris(actor_uris, "actor")
 #p load_uris(film_uris, "film")
+
+doc1 = Nokogiri::HTML(open(uri6, :allow_redirections => :safe))
+
+puts find_films_by_actor(doc1)
+
+
+# remember for later: title="(.*?)"
+# del this comment before submission
