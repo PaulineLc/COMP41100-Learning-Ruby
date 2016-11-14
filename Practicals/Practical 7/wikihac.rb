@@ -38,8 +38,13 @@ end
 
 def find_films_by_actor(doca, out = [])
 	puts "Entering find_films_by_actor with #{find_name_title(doca)}."
- 	all_links = doca.search("//td//i//a")
- 	all_links = all_links.collect do |link|
+  nb_table = doca.search("//table").length
+  filmography_table = nil
+  for i in 1..nb_table
+    filmography_table = doca.search("//table[#{i}]//td//i//a")
+    break if filmography_table.length > 1
+  end
+ 	all_links = filmography_table.collect do |link|
     link_info = link
     link_info = link['href']
     link_info = strip_out_name(link_info) # May print 'URI is not right in STRIP_OUT_NAME' when a movie does NOT have a wikipedia page
@@ -113,10 +118,9 @@ film_uris = [uri1,uri2,uri4,uri7,uri8]      # URIs that are and are not films.
 #p load_uris(actor_uris, "actor")
 #p load_uris(film_uris, "film")
 
-doc1 = Nokogiri::HTML(open(uri6, :allow_redirections => :safe))
+doc1 = Nokogiri::HTML(open(uri5, :allow_redirections => :safe))
 
 puts find_films_by_actor(doc1)
-
 
 # remember for later: title="(.*?)"
 # del this comment before submission
