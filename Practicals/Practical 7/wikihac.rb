@@ -38,18 +38,46 @@ end
 
 def find_films_by_actor(doca, out = [])
 	puts "Entering find_films_by_actor with #{find_name_title(doca)}."
-  nb_table = doca.search("//table").length
-  filmography_table = nil
-  for i in 1..nb_table
-    filmography_table = doca.search("//table[#{i}]//td//i//a")
-    break if filmography_table.length > 1
+
+	# below we defined 2 methods to look for the film / filmography table
+  # this is because Wikipedia is inconsistent in the way it lists an actor's movies
+  # sometimes the table is directly after a tag h2 whose name is "filmography"
+  # example: https://en.wikipedia.org/wiki/Adele_Exarchopoulos
+  # sometimes below that h2 tag, there is an additional h3 tag named "films"
+  # example: https://en.wikipedia.org/wiki/Melinda_Dillon
+  method1 = doca.search("//h3//span[contains(concat(' ', normalize-space(@id), ' '), ' Film')]/..").first
+  method2 = doca.search("//h2//span[contains(concat(' ', normalize-space(@id), ' '), ' Filmography')]/..").first
+
+  # Now we check which method is the correct one. We check which of those methods returned nil.
+  # Then we select the film / filmography table
+  # The method selected to look for a film looks for either an h2 or h3 tag (as appropriate) with a given id
+  # 'film' or 'filmography' (as appropriate) then look for the following elements with the pattern <td><i><a>
+  # This pattern seems consistent across Wikipedia
+  if !method1.nil?
+    filmography_links = doca.search("//h3//span[contains(concat(' ', normalize-space(@id), ' '), ' Film')]/..")
+              .first
+              .next_element
+              .search("td/i/a")
+  elsif !method2.nil?
+    filmography_links = doca.search("//h2//span[contains(concat(' ', normalize-space(@id), ' '), ' Filmography')]/..")
+              .first
+              .next_element
+              .search("td/i/a")
   end
- 	all_links = filmography_table.collect do |link|
-    link_info = link
-    link_info = link['href']
-    link_info = strip_out_name(link_info) # May print 'URI is not right in STRIP_OUT_NAME' when a movie does NOT have a wikipedia page
+
+  if filmography_links.nil?
+    return out # explicit return statement in case no films were found
   end
-  all_links
+
+  # collect links and get movie name
+  filmography_links.collect do |link|
+    film_info = link['href']
+    if !(film_info.include?("redlink=1")) # exclude movies with no Wikipedia page
+      out << strip_out_name(film_info)
+    end
+  end
+
+  out
 end
  
  
@@ -118,9 +146,6 @@ film_uris = [uri1,uri2,uri4,uri7,uri8]      # URIs that are and are not films.
 #p load_uris(actor_uris, "actor")
 #p load_uris(film_uris, "film")
 
-doc1 = Nokogiri::HTML(open(uri5, :allow_redirections => :safe))
+doc1 = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Adele_Exarchopoulos", :allow_redirections => :safe))
 
 puts find_films_by_actor(doc1)
-
-# remember for later: title="(.*?)"
-# del this comment before submission
