@@ -2,7 +2,9 @@ class OtherController < ApplicationController
 
   def name
 	 @fname = params[:fst_name]
+	 p @fname
    @lname = params[:lst_name]
+	 p @lname
    @entry = Entry.create({:first_name => @fname, :last_name =>  @lname})
   end
 

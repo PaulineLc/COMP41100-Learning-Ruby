@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+
+  root 'main#index'
+
   get 'user/profile'
+
+  get 'user/check_details'
 
   get 'adoption/kittenlisting'
 
-  get 'adoption/adopt/:cat' => 'adoption#adopt'
+  get 'adoption/adopt'
 
   get 'main/index'
 
