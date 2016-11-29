@@ -3,6 +3,7 @@
 <p><b>First Name:</b> <%= h @fname.capitalize %> </p>
 <p><b>Last Name:</b> <%= h @lname.capitalize %> </p>
 <%= form_tag('index', :method => 'get') do %>
+		<%= hidden_field_tag :user_id, @user_id %>
   <p> Address:
 	<%= text_field_tag 'st_name', @address %>
    <p> Salary:
@@ -15,5 +16,5 @@
 <% end %>
 
 <% if @person.address then %>
-    <%=  link_to "show details", :controller => "other", :action => "show"  %></p>
+    <%=  link_to "show details", :controller => "other", :action => "show", :user_id => @person.id  %></p>
 <% end %>

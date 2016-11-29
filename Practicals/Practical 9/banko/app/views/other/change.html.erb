@@ -15,13 +15,14 @@
 	<%= text_field_tag 'salary', @salary %>
    <p> Loan Amount:
 	<%= text_field_tag 'loan', @loan %>
+		 <%= hidden_field_tag :user_id, @person.id %>
 	<%= submit_tag 'send' %>
 <% end %>
 
 
-<% if @entry.salary then %>
+<% if @person.salary then %>
      <p> Please 
-   <%= link_to 'Ask For Quote Again', :controller => "other", :action => "quote"  %>
+   <%= link_to 'Ask For Quote Again', :controller => "other", :action => "quote", :user_id => @person.id  %>
 <% end %>
  or 
-<%= link_to 'Go Back to Start', :controller => "other", :action => "index" %> .
+<%= link_to 'Go Back to Start', :controller => "other", :action => "index", :user_id => @person.id %> .

@@ -30,7 +30,7 @@ class UserController < ApplicationController
           @pics = "red.jpg"
       end
     else
-      @message = "Dear #{@first_name}, we are sorry to inform that you do not meet the minimum criteria to adopt our cat. Please, try again later."
+      @message = "Dear #{@first_name}, we are sorry to inform that you do not meet the minimum criteria to adopt our cats. Please, wait a few months and try again."
       @pics = "sad.jpg"
     end
 

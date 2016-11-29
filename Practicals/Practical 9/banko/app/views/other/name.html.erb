@@ -11,5 +11,5 @@
 
 <% if @fname then %>
      <p> Welcome <%= h @entry.first_name %>, let's go to the
-    <%= link_to 'next page', :controller => "other", :action => "index"  %>.</p>
+    <%= link_to 'next page', :controller => "other", :action => "index", :user_id => @entry.id  %>.</p>
 <% end %>

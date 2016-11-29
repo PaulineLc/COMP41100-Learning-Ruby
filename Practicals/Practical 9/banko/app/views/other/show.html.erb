@@ -10,5 +10,5 @@
 <p> <b>Your ID:</b> <%=h @person.id %> </p>
 
 <p> Do you want to 
-<%= link_to 'Ask For Quote',  :controller => "other", :action => "quote"  %> or
-<%= link_to 'Go Back', :controller => "other", :action => "index" %> . </p>
+<%= link_to 'Ask For Quote',  :controller => "other", :action => "quote", :user_id => @person.id  %> or
+<%= link_to 'Go Back', :controller => "other", :action => "index", :user_id => @person.id %> . </p>

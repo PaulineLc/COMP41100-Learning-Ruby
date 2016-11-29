@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root 'main#welcome'
+
   get 'other/name'
 
   get 'other/index'
