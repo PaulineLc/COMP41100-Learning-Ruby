@@ -14,7 +14,8 @@
     <h2>Please complete the form below in order to complete the adoption process.</h2>
     <%= form_tag("adopt", :method => 'get') do %>
         <p><b>I would like to adopt:</b>
-          <%= text_field_tag('kitten', @kitty_name, :readonly => true) %></p>
+          <%= h @kitty_name %></p>
+        <%= hidden_field_tag :kitten, @kitty_name %>
         <p><b>My first name is:</b>
           <%= text_field_tag 'fname' %></p>
         <p><b>My last name is:</b>
@@ -28,4 +29,5 @@
     <% end %>
 <% else %>
     <h2>We need your details before we can allow you to adopt one of our cat. Please go back and enter your details</h2>
+    <p><%= link_to "Go back", :controller => "adoption", :action => "adopt", :cat =>params[:kitten]%></p>
 <% end %>
