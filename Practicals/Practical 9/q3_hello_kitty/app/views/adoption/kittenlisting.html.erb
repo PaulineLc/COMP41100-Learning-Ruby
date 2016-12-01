@@ -1,0 +1,16 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Butterfly+Kids|Ruge+Boogie|Sacramento" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+</head>
+
+<h1>Kitten Listings</h1>
+<h2>Click the kitty you would like to adopt</h2>
+
+
+<% @available_kitten.each do |kitty| %>
+    <%= link_to image_tag(kitty[1], width: "500px"), :controller => "adoption", :action => "adopt", :cat => kitty[0]%>
+<% end %>
+
+<script>
+  setTimeout("location.href = '../main/index';",1500);
+</script>

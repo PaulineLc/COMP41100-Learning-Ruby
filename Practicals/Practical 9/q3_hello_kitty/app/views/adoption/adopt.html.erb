@@ -7,6 +7,7 @@
 
 <% if @f_name && @l_name && @f_name != "" && @l_name != "" then %>
     <h2> Dear <%= h @user.fname %></h2>
+    <h2><%= h @user.id %></h2>
     <h2>Thank you for your application. Please click 'next' to review your application.</h2>
     <h2><%= link_to 'next', :controller => "user", :action => "profile", :user_id => @user.id  %></h2>
 <% elsif @kitty_name %>
